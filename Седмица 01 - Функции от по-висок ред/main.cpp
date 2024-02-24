@@ -65,9 +65,19 @@ U reduce(BinaryOperation<T, U, U> acc, U nv, const T* arr, std::size_t n) {
   return acc(arr[n], reduce(acc, nv, arr, n));
 }
 
+template <typename T, typename U>
+U reduce_iter(BinaryOperation<T, U, U> acc, U nv, const T* arr, std::size_t n) {
+  for (size_t i = 0; i < n; i++) {
+    nv = acc(nv, arr[i]);
+  }
+    
+  return nv;
+}
+
+
 int main() {
   int arr[] = {1, 2, 3, 4, 5};
-  std::cout << reduce<int, int>([](int curr, int res){
+  std::cout << reduce_iter<int, int>([](int curr, int res){
       return res * curr;
   }, 1, arr, 5) << '\n'; // -> 120
   return 0;
