@@ -3,10 +3,9 @@
 
 std::function<void(int)> switch_fn(int n, std::function<void(int)> f,
                                    std::function<void(int)> g) {
-  int count = 0;
   return [=](int x) mutable {
-    if (count < n) {
-      ++count;
+    if (n > 0) {
+      --n;
       return f(x);
     }
     return g(x);
