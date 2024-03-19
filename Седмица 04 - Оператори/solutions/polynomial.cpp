@@ -108,7 +108,7 @@ Polynomial Polynomial::operator-(const Polynomial &other) const {
   return (*this) + other * (-1);
 }
 
-Polynomial &Polynomial::operator+=(const Polynomial &other) {
+Polynomial& Polynomial::operator+=(const Polynomial &other) {
   return *this = *this + other;
 }
 
