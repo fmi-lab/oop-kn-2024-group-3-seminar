@@ -19,7 +19,7 @@ for(int x : arr) {
 ```c++
 auto begin = std::begin(arr);
 auto end = std::end(arr);
-for(; begin != end; begin++) {
+for(; begin != end; ++begin) {
 int x = *begin;
   std::cout << x << ' ';
 }
